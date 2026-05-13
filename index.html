@@ -718,6 +718,20 @@
       display: block;
     }
 
+    @media (min-width: 901px) {
+      body {
+        zoom: .9;
+      }
+
+      @supports not (zoom: 1) {
+        body {
+          width: 111.111%;
+          transform: scale(.9);
+          transform-origin: top center;
+        }
+      }
+    }
+
     @media (max-width: 900px) {
       .hero-inner > .hero-book {
         display: none !important;
