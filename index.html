@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>O Manifesto da Vida Autêntica | Marcos S. Costa</title>
+  <meta name="description" content="Um manifesto sobre consciência, responsabilidade pessoal e a coragem de abandonar o piloto automático." />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      background: #050505;
+      color: #ffffff;
+      width: 100%;
+      overflow-x: hidden;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .top-timer {
+      background: rgba(10,10,10,.92);
+      border-bottom: 1px solid rgba(255,255,255,.10);
+      padding: 13px 18px;
+      text-align: center;
+      backdrop-filter: blur(14px);
+    }
+
+    .timer-wrap {
+      max-width: 1150px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .timer-text {
+      position: relative;
+      font-size: 12px;
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: .22em;
+      color: #e7e7e7;
+      line-height: 1;
+    }
+
+    .timer-text::before,
+    .timer-text::after {
+      color: #f97316;
+      font-size: 13px;
+      vertical-align: 1px;
+    }
+
+    .timer-text::before {
+      content: "✦";
+      margin-right: 14px;
+    }
+
+    .timer-text::after {
+      content: "";
+    }
+
+    .timer-divider {
+      width: 1px;
+      height: 20px;
+      background: rgba(255,255,255,.18);
+    }
+
+    .countdown {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #f97316;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .08em;
+    }
+
+    .countdown::before {
+      content: "◷";
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 21px;
+      height: 21px;
+      margin-right: 3px;
+      border: 1px solid rgba(249,115,22,.75);
+      border-radius: 999px;
+      color: #f97316;
+      font-size: 13px;
+      line-height: 1;
+    }
+
+    .countdown::after {
+      content: "✦";
+      margin-left: 12px;
+      color: #f97316;
+      font-size: 13px;
+    }
+
+    .time-box {
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+      border-radius: 0;
+      padding: 0;
+      min-width: 0;
+      text-align: center;
+    }
+
+    .time-box strong {
+      display: inline;
+      font-size: 13px;
+      line-height: 1;
+      color: #f97316;
+    }
+
+    .time-box span {
+      display: inline;
+      margin-left: 4px;
+      font-size: 12px;
+      font-weight: 850;
+      text-transform: none;
+      color: #f97316;
+      letter-spacing: .06em;
+    }
+
+    .colon {
+      display: none;
+    }
+
+    .hero {
+      position: relative;
+      padding: 72px 24px 96px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 15%, rgba(255,255,255,.08), transparent 34%),
+        radial-gradient(circle at 72% 72%, rgba(249,115,22,.13), transparent 30%),
+        #050505;
+    }
+
+    .hero-inner {
+      max-width: 1020px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      align-items: center;
+      gap: 42px;
+    }
+
+    .book-wrap {
+      position: relative;
+      max-width: 360px;
+      margin: 0 auto;
+    }
+
+    .hero-book {
+      transform: translateY(-10px);
+    }
+
+    .book-glow {
+      position: absolute;
+      inset: -45px;
+      background: rgba(207,250,254,.10);
+      filter: blur(60px);
+      border-radius: 999px;
+    }
+
+    .book-cover {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 2/3;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.15);
+      background: #071010;
+      box-shadow: 0 45px 110px rgba(0,0,0,.8);
+    }
+
+    .book-cover img {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+      background: #020404;
+    }
+
+    .fallback-cover {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 63%, rgba(225,255,245,.55), rgba(10,20,20,.2) 22%, rgba(0,0,0,.95) 72%);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: center;
+      padding: 42px 24px 34px;
+    }
+
+    .fallback-cover h3 {
+      font-size: 42px;
+      line-height: .92;
+      text-transform: uppercase;
+      font-weight: 950;
+      text-shadow: 0 4px 3px #000;
+    }
+
+    .fallback-cover p {
+      font-size: 18px;
+      color: #e5e5e5;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.05);
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .22em;
+      color: #d4d4d4;
+      margin-bottom: 26px;
+    }
+
+    .kicker span {
+      color: #fb923c;
+    }
+
+    h1 {
+      max-width: 735px;
+      font-size: clamp(38px, 4.25vw, 58px);
+      line-height: .95;
+      letter-spacing: -0.05em;
+      font-weight: 950;
+    }
+
+    .hero-subtitle {
+      max-width: 660px;
+      margin-top: 28px;
+      font-size: 20px;
+      line-height: 1.65;
+      color: #e1e1e1;
+    }
+
+    .hero-actions {
+      margin-top: 34px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: #f97316;
+      color: #fff;
+      border-radius: 16px;
+      padding: 18px 28px;
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      box-shadow: none;
+      transition: .25s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: #fb923c;
+    }
+
+    .safe-text {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 13px;
+      line-height: 1.4;
+      color: #b8b8b8;
+    }
+
+    .safe-text p + p {
+      position: relative;
+      padding-left: 14px;
+    }
+
+    .safe-text p + p::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 1px;
+      height: 22px;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,.22);
+    }
+
+    .stats {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      max-width: 560px;
+    }
+
+    .stat-card {
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.035);
+      border-radius: 20px;
+      padding: 18px;
+    }
+
+    .stat-card strong {
+      display: block;
+      font-size: 28px;
+      font-weight: 950;
+    }
+
+    .stat-card span {
+      display: block;
+      margin-top: 5px;
+      font-size: 12px;
+      color: #737373;
+    }
+
+    section {
+      padding: 60px 24px;
+    }
+
+    .section-dark {
+      background: #000;
+      border-top: 1px solid rgba(255,255,255,.1);
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+
+    .container {
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .eyebrow {
+      color: #fb923c;
+      font-size: 14px;
+      font-weight: 950;
+      text-transform: uppercase;
+      letter-spacing: .28em;
+      margin-bottom: 22px;
+    }
+
+    h2 {
+      font-size: clamp(30px, 3.8vw, 46px);
+      line-height: 1.03;
+      letter-spacing: -0.04em;
+      font-weight: 950;
+    }
+
+    .section-copy {
+      max-width: 700px;
+      margin: 20px auto 0;
+      font-size: 18px;
+      line-height: 1.62;
+      color: #a3a3a3;
+    }
+
+    .material-grid {
+      display: grid;
+      grid-template-columns: .92fr 1.08fr;
+      gap: 38px;
+      align-items: start;
+    }
+
+    .material-copy p {
+      margin-top: 24px;
+      font-size: 19px;
+      line-height: 1.75;
+      color: #a3a3a3;
+    }
+
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .benefit {
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.03);
+      border-radius: 24px;
+      padding: 24px;
+    }
+
+    .check {
+      width: 39px;
+      height: 39px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      border: 1px solid rgba(251,146,60,.45);
+      background: rgba(251,146,60,.12);
+      color: #fdba74;
+      font-size: 22px;
+      font-weight: 950;
+      margin-bottom: 20px;
+    }
+
+    .benefit p {
+      font-size: 16px;
+      line-height: 1.5;
+      color: #f5f5f5;
+      font-weight: 700;
+    }
+
+    .quotes-section {
+      background: radial-gradient(circle at 50% 0%, rgba(255,255,255,.035), transparent 34%), #101010;
+    }
+
+    .quotes {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    blockquote {
+      position: relative;
+      background: rgba(0,0,0,.72);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 24px;
+      padding: 22px 24px;
+      font-size: 17px;
+      line-height: 1.42;
+      font-weight: 720;
+      box-shadow: 0 22px 55px rgba(0,0,0,.28);
+    }
+
+    blockquote::before {
+      content: "“";
+      position: absolute;
+      top: -10px;
+      left: 18px;
+      color: rgba(249,115,22,.28);
+      font-size: 58px;
+      line-height: 1;
+      font-weight: 900;
+    }
+
+    .author-card {
+      max-width: 940px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: .74fr 1.26fr;
+      gap: 46px;
+      align-items: center;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.028);
+      border-radius: 36px;
+      padding: 34px;
+    }
+
+    .author-photo {
+      min-height: 300px;
+      border-radius: 26px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.09);
+      background: #171717;
+    }
+
+    .author-photo img {
+      width: 100%;
+      height: 100%;
+      min-height: 300px;
+      object-fit: cover;
+      display: block;
+      filter: brightness(.9) saturate(.9) contrast(.96);
+    }
+
+    .author-text h2 {
+      margin-top: 16px;
+      font-size: clamp(34px, 3.2vw, 44px);
+      letter-spacing: -0.035em;
+    }
+
+    .author-sub {
+      margin-top: 8px;
+      margin-bottom: 26px;
+      font-size: 16px;
+      color: #b8b8b8;
+      font-style: italic;
+    }
+
+    .author-text p:not(.eyebrow):not(.author-sub) {
+      margin-top: 18px;
+      max-width: 620px;
+      font-size: 17px;
+      line-height: 1.72;
+      color: #d4d4d4;
+    }
+
+    #comprar {
+      scroll-margin-top: 20px;
+    }
+
+    .offer-card {
+      margin-top: 42px;
+      display: grid;
+      grid-template-columns: .75fr 1.25fr;
+      gap: 30px;
+      align-items: center;
+      background: #101010;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 34px;
+      padding: 30px;
+      text-align: left;
+    }
+
+    .offer-card .book-wrap {
+      max-width: 205px;
+    }
+
+    .offer-title {
+      max-width: 620px;
+      font-size: 22px;
+      line-height: 1.32;
+      font-weight: 820;
+    }
+
+    .price {
+      margin-top: 34px;
+      margin-bottom: 26px;
+    }
+
+    .old-price {
+      color: #a3a3a3;
+      text-decoration: line-through;
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+
+    .new-price {
+      margin-top: 2px;
+      color: #f5f5f5;
+      font-size: 42px;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      font-weight: 900;
+    }
+
+    .trust-row {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      color: #a3a3a3;
+      font-size: 14px;
+    }
+
+    .chapters {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .chapter {
+      position: relative;
+      overflow: hidden;
+      min-height: 88px;
+      border: 1px solid rgba(255,255,255,.09);
+      background: rgba(255,255,255,.026);
+      border-radius: 18px;
+      padding: 18px 20px;
+    }
+
+    .chapter::after {
+      content: attr(data-number);
+      position: absolute;
+      right: 18px;
+      bottom: -12px;
+      font-size: 64px;
+      font-weight: 950;
+      color: rgba(255,255,255,.035);
+      line-height: 1;
+    }
+
+    .chapter span {
+      color: #fb923c;
+      font-size: 14px;
+      font-weight: 950;
+    }
+
+    .chapter p {
+      position: relative;
+      z-index: 1;
+      margin-top: 9px;
+      font-weight: 800;
+      color: #f5f5f5;
+    }
+
+    .faq-section {
+      background: #101010;
+    }
+
+    .faq-list {
+      max-width: 760px;
+      margin: 32px auto 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .faq-item {
+      background: #000;
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 22px 24px;
+      border: 0;
+      background: transparent;
+      color: #fff;
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .faq-question h3 {
+      font-size: 19px;
+      font-weight: 900;
+    }
+
+    .faq-icon {
+      flex: 0 0 auto;
+      color: #f97316;
+      font-size: 24px;
+      font-weight: 700;
+      transition: transform .2s ease;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .28s ease;
+    }
+
+    .faq-answer p {
+      padding: 0 24px 22px;
+      color: #a3a3a3;
+      line-height: 1.65;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 180px;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    footer {
+      padding: 30px 24px 34px;
+      color: #737373;
+      font-size: 14px;
+    }
+
+    .footer-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .mobile-sticky {
+      display: none !important;
+    }
+
+    .hero-mobile-book {
+      display: none;
+    }
+
+    .hero-inner > .hero-book {
+      display: block;
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner > .hero-book {
+        display: none !important;
+      }
+
+      .hero-mobile-book {
+        display: block !important;
+      }
+      .hero {
+        padding: 42px 20px 86px;
+      }
+
+      .hero-inner,
+      .material-grid,
+      .author-card,
+      .offer-card {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-text {
+        order: 1;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-book {
+      position: relative;
+      transform: translateY(-10px);
+    }
+
+      .hero-mobile-book {
+        display: block;
+        order: 2;
+        width: 100%;
+        margin: 24px 0 8px;
+      }
+
+      .hero-mobile-book .book-wrap {
+        max-width: 270px;
+      }
+
+      .hero-subtitle {
+        order: 3;
+      }
+
+      .hero-actions {
+        order: 4;
+      }
+
+      .stats {
+        order: 5;
+      }
+
+      .hero-subtitle {
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 18px;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .safe-text {
+        text-align: center;
+        display: block;
+      }
+
+      .safe-text p + p {
+        padding-left: 0;
+      }
+
+      .safe-text p + p::before {
+        display: none;
+      }
+
+      .stats,
+      .benefits,
+      .quotes,
+      .chapters,
+      .trust-row {
+        grid-template-columns: 1fr;
+      }
+
+      .book-wrap {
+        max-width: 280px;
+      }
+
+      .author-card,
+      .offer-card {
+        padding: 24px;
+        border-radius: 30px;
+      }
+
+      .offer-card {
+        text-align: center;
+        gap: 22px;
+        padding: 22px 18px;
+      }
+
+      .offer-card .book-wrap {
+        max-width: 180px;
+      }
+
+      .offer-title {
+        font-size: 24px;
+        line-height: 1.2;
+      }
+
+      .new-price {
+        font-size: 36px;
+      }
+
+      .btn-primary {
+        width: auto;
+        min-width: 290px;
+      }
+
+      .btn-primary {
+        width: 100%;
+      }
+
+      section {
+        padding: 62px 20px;
+      }
+
+      footer {
+        padding-bottom: 34px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .author-section {
+        padding: 56px 20px;
+      }
+
+      .author-card {
+        padding: 20px;
+        gap: 28px;
+      }
+
+      .author-image img {
+        max-height: 420px;
+        object-fit: cover;
+      }
+
+      .author-content h2 {
+        font-size: 2.4rem;
+        line-height: 1;
+        margin-bottom: 10px;
+      }
+
+      .author-subtitle {
+        font-size: 1.05rem;
+        margin-bottom: 22px;
+      }
+
+      .author-content p {
+        font-size: 1.02rem;
+        line-height: 1.75;
+      }
+
+
+      .top-timer {
+        background: linear-gradient(90deg, #ea580c, #f97316, #ea580c);
+        border-bottom: 1px solid rgba(255,255,255,.08);
+        padding: 9px 14px;
+      }
+
+      .timer-divider,
+      .countdown {
+        display: none;
+      }
+
+      .timer-wrap {
+        justify-content: center;
+      }
+
+      .timer-text {
+        max-width: none;
+        font-size: 10px;
+        line-height: 1.2;
+        letter-spacing: .16em;
+        color: #fff;
+      }
+
+      .timer-text::before {
+        content: "✦ ";
+        margin-right: 0;
+      }
+
+      .timer-text::after {
+        content: " ✦";
+      }
+    }
+
+    @media (max-width: 480px) {
+      .top-timer {
+        padding: 9px 12px;
+      }
+
+      .timer-wrap {
+        gap: 9px;
+      }
+
+      .timer-text {
+        font-size: 9px;
+        line-height: 1.45;
+        letter-spacing: .12em;
+      }
+
+      .time-box {
+        min-width: 43px;
+        padding: 6px 8px;
+        border-radius: 10px;
+      }
+
+      .time-box strong {
+        font-size: 16px;
+      }
+
+      .time-box span {
+        font-size: 7px;
+      }
+
+      .colon {
+        font-size: 17px;
+      }
+
+      .fallback-cover h3 {
+        font-size: 34px;
+      }
+
+      h1 {
+        font-size: 38px;
+      }
+
+      .stats {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .stat-card {
+        padding: 14px 8px;
+      }
+
+      .stat-card strong {
+        font-size: 23px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="mobile-sticky">
+    <a href="#comprar">Ver oferta <span>→</span></a>
+  </div>
+
+  <div class="top-timer">
+    <div class="timer-wrap">
+      <p class="timer-text">Condição especial de lançamento</p>
+      <span class="timer-divider"></span>
+      <div class="countdown">
+        <div class="time-box"><strong id="hours">07</strong><span>h</span></div>
+        <div class="colon">:</div>
+        <div class="time-box"><strong id="minutes">07</strong><span>m</span></div>
+        <div class="colon">:</div>
+        <div class="time-box"><strong id="seconds">56</strong><span>s</span></div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-book">
+          <div class="book-wrap">
+            <div class="book-glow"></div>
+            <div class="book-cover">
+              <!-- Troque o src abaixo pela URL da imagem da capa no GreatPages -->
+              <img src="capa-livro.png" alt="Capa do ebook O Manifesto da Vida Autêntica" loading="eager" decoding="async" fetchpriority="high" onerror="this.style.display='none'" />
+              <div class="fallback-cover">
+                <h3>O Manifesto da<br>Vida Autêntica</h3>
+                <p>Pare de se abandonar nas escolhas que você aceita em silêncio</p>
+                <p>Marcos S. Costa</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-text">
+          <div class="kicker"><span>✦</span> Ebook em PDF</div>
+          <h1>Você não está cansado da vida. Está cansado de viver distante de si mesmo.</h1>
+
+          <div class="hero-mobile-book">
+            <div class="book-wrap">
+              <div class="book-glow"></div>
+              <div class="book-cover">
+                <img src="capa-livro.png" alt="Capa do ebook O Manifesto da Vida Autêntica" loading="eager" decoding="async" fetchpriority="high" onerror="this.style.display='none'" />
+                <div class="fallback-cover">
+                  <h3>O Manifesto da<br>Vida Autêntica</h3>
+                  <p>Pare de se abandonar nas escolhas que você aceita em silêncio</p>
+                  <p>Marcos S. Costa</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="hero-subtitle">Um manifesto direto sobre consciência, escolhas e a coragem de abandonar o piloto automático antes que ele continue decidindo por você.</p>
+
+          <div class="hero-actions">
+            <a href="#comprar" class="btn-primary">Ver oferta de lançamento <span>→</span></a>
+            <div class="safe-text">
+              <p>Pagamento seguro pela Kiwify</p>
+              <p>7 dias de garantia incondicional</p>
+            </div>
+          </div>
+
+          <div class="stats">
+            <div class="stat-card"><strong>97</strong><span>páginas</span></div>
+            <div class="stat-card"><strong>18</strong><span>capítulos</span></div>
+            <div class="stat-card"><strong>PDF</strong><span>acesso imediato</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-dark center">
+      <div class="container">
+        <p class="eyebrow">Para quem é este livro</p>
+        <h2>Para quem percebeu que existir não é o mesmo que viver.</h2>
+        <p class="section-copy">Este livro não promete felicidade instantânea. Ele propõe uma reflexão honesta para quem sente que está cumprindo rotinas, expectativas e papéis, mas perdeu a conexão com a própria vida.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container material-grid">
+        <div class="material-copy">
+          <p class="eyebrow">O que há no material</p>
+          <h2>Uma leitura curta, densa e feita para provocar clareza.</h2>
+          <p>O manifesto conduz o leitor por temas como consciência, responsabilidade pessoal, reconstrução interior, silêncio, liberdade e escolhas conscientes.</p>
+        </div>
+
+        <div class="benefits">
+          <div class="benefit"><div class="check">✓</div><p>Entenda por que você repete padrões mesmo sabendo que eles não fazem mais sentido.</p></div>
+          <div class="benefit"><div class="check">✓</div><p>Aprenda a reconhecer o modo automático antes que ele decida por você.</p></div>
+          <div class="benefit"><div class="check">✓</div><p>Transforme culpa em responsabilidade pessoal sem cair em autocrítica destrutiva.</p></div>
+          <div class="benefit"><div class="check">✓</div><p>Reorganize escolhas, limites e prioridades com mais clareza interior.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quotes-section">
+      <div class="container center">
+        <p class="eyebrow">Trechos do manifesto</p>
+        <h2>Frases para quem está pronto para parar de se abandonar.</h2>
+
+        <div class="quotes">
+          <blockquote>“A mudança começa no instante em que você para de mentir para si mesmo.”</blockquote>
+          <blockquote>“A consciência não cria problemas novos; ela revela os que sempre existiram.”</blockquote>
+          <blockquote>“A verdadeira mudança não começa fora. Ela começa na atenção.”</blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="author-card">
+        <div class="author-photo">
+          <!-- Troque o src abaixo pela URL da foto do autor no GreatPages -->
+          <img src="author-marcos-costa.jpg" alt="Marcos S. Costa, autor do ebook O Manifesto da Vida Autêntica" loading="lazy" decoding="async" />
+        </div>
+
+        <div class="author-text">
+          <p class="eyebrow">Sobre o autor</p>
+          <h2>Marcos S. Costa</h2>
+          <p class="author-sub">Autor de O Manifesto da Vida Autêntica</p>
+          <p>Marcos S. Costa escreve sobre consciência, responsabilidade pessoal e autenticidade humana. Sua abordagem é direta, reflexiva e voltada para leitores que buscam uma relação mais honesta com a própria existência.</p>
+          <p>Em vez de oferecer respostas prontas, sua escrita provoca perguntas capazes de ampliar a percepção individual e devolver ao leitor o protagonismo das próprias escolhas.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="comprar" class="section-dark center">
+      <div class="container">
+        <h2>A decisão é sua: continuar no automático ou retomar o controle?</h2>
+
+        <div class="offer-card">
+          <div class="book-wrap">
+            <div class="book-glow"></div>
+            <div class="book-cover">
+              <img src="capa-livro.png" alt="Capa do ebook O Manifesto da Vida Autêntica" onerror="this.style.display='none'" />
+              <div class="fallback-cover">
+                <h3>O Manifesto da<br>Vida Autêntica</h3>
+                <p>Pare de se abandonar nas escolhas que você aceita em silêncio</p>
+                <p>Marcos S. Costa</p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <p class="offer-title">Garanta sua cópia do Manifesto agora pelo valor exclusivo de lançamento e comece sua jornada de clareza hoje.</p>
+            <div class="price">
+              <p class="old-price">De R$97</p>
+              <p class="new-price">R$ 47,90</p>
+            </div>
+
+            <a href="https://pay.kiwify.com.br/Va926Fk" class="btn-primary">Quero o manifesto agora <span>→</span></a>
+
+            <div class="trust-row">
+              <span>💳 Pagamento seguro</span>
+              <span>🛡️ 7 dias de garantia</span>
+              <span>📘 Acesso imediato</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container center">
+        <h2>Alguns capítulos do ebook</h2>
+        <div class="chapters">
+          <div class="chapter" data-number="01"><span>01</span><p>O Despertar da Consciência</p></div>
+          <div class="chapter" data-number="02"><span>02</span><p>A Vida no Automático</p></div>
+          <div class="chapter" data-number="03"><span>03</span><p>Responsabilidade Pessoal</p></div>
+          <div class="chapter" data-number="04"><span>04</span><p>O Confronto Interno</p></div>
+          <div class="chapter" data-number="05"><span>05</span><p>Escolhas Conscientes</p></div>
+          <div class="chapter" data-number="06"><span>06</span><p>A Vida Autêntica na Prática</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container center">
+        <h2>Perguntas frequentes</h2>
+
+        <div class="faq-list">
+          <div class="faq-item active">
+            <button class="faq-question" type="button" aria-expanded="true"><h3>Como vou receber o material?</h3><span class="faq-icon">+</span></button>
+            <div class="faq-answer"><p>O acesso é imediato. Assim que o pagamento for confirmado, você receberá o link de acesso no e-mail cadastrado.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false"><h3>O livro é físico ou digital?</h3><span class="faq-icon">+</span></button>
+            <div class="faq-answer"><p>O Manifesto é um ebook em PDF, otimizado para leitura no celular, tablet ou computador.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false"><h3>É seguro comprar neste site?</h3><span class="faq-icon">+</span></button>
+            <div class="faq-answer"><p>Sim. O pagamento é processado pela Kiwify, plataforma usada para produtos digitais.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false"><h3>Tem garantia?</h3><span class="faq-icon">+</span></button>
+            <div class="faq-answer"><p>Sim. Você tem 7 dias de garantia incondicional para solicitar reembolso, se o conteúdo não fizer sentido para você.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p>© 2026 Marcos S. Costa — Todos os direitos reservados.</p>
+      <p>Desenvolvido por MKL Creative Company</p>
+    </div>
+  </footer>
+
+  <script>
+    window.history.scrollRestoration = "manual";
+    window.addEventListener("load", function () {
+      setTimeout(function () {
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: "smooth"
+        });
+      }, 120);
+    });
+
+    let secondsLeft = 7 * 60 * 60 + 7 * 60 + 56;
+
+    function updateCountdown() {
+  const now = new Date();
+
+  // Próxima meia-noite
+  const tomorrow = new Date();
+  tomorrow.setHours(24, 0, 0, 0);
+
+  // Diferença
+  const diff = tomorrow - now;
+
+  // Conversão
+  const hours = Math.floor(diff / (1000 * 60 * 60));
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+
+  // Formatação desktop
+  const formatted =
+    String(hours).padStart(2, "0") +
+    " h " +
+    String(minutes).padStart(2, "0") +
+    " m " +
+    String(seconds).padStart(2, "0") +
+    " s";
+
+  // Timer desktop
+  const desktopTimer = document.getElementById("countdown-desktop");
+  if (desktopTimer) {
+    desktopTimer.textContent = formatted;
+  }
+
+  // Timer mobile
+  const mobileHours = document.getElementById("hours");
+  const mobileMinutes = document.getElementById("minutes");
+  const mobileSeconds = document.getElementById("seconds");
+
+  if (mobileHours) {
+    mobileHours.textContent = String(hours).padStart(2, "0");
+  }
+
+  if (mobileMinutes) {
+    mobileMinutes.textContent = String(minutes).padStart(2, "0");
+  }
+
+  if (mobileSeconds) {
+    mobileSeconds.textContent = String(seconds).padStart(2, "0");
+  }
+}
+
+// Atualiza imediatamente
+updateCountdown();
+
+// Atualiza a cada segundo
+setInterval(updateCountdown, 1000);
+
+    document.querySelectorAll(".faq-question").forEach(function (button) {
+      button.addEventListener("click", function () {
+        const item = button.closest(".faq-item");
+        const isActive = item.classList.toggle("active");
+        button.setAttribute("aria-expanded", isActive ? "true" : "false");
+      });
+    });
+  </script>
+</body>
+</html>
