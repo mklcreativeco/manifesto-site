@@ -723,8 +723,8 @@ src="https://www.facebook.com/tr?id=1650436132934207&ev=PageView&noscript=1"
     }
 
     .mobile-sticky {
-      display: none !important;
-    }
+  display: none;
+}
 
     .hero-mobile-book {
       display: none;
@@ -749,6 +749,35 @@ src="https://www.facebook.com/tr?id=1650436132934207&ev=PageView&noscript=1"
     }
 
     @media (max-width: 900px) {
+      .mobile-sticky {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 14px;
+  z-index: 9999;
+  display: block !important;
+}
+
+.mobile-sticky a {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #f97316;
+  color: #fff;
+  border-radius: 16px;
+  padding: 16px 20px;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  box-shadow: 0 16px 45px rgba(0,0,0,.55);
+}
+
+body {
+  padding-bottom: 86px;
+}
       .hero-inner > .hero-book {
         display: none !important;
       }
@@ -1003,9 +1032,9 @@ src="https://www.facebook.com/tr?id=1650436132934207&ev=PageView&noscript=1"
 </head>
 
 <body>
-  <div class="mobile-sticky">
-    <a href="#comprar">Ver oferta <span>→</span></a>
-  </div>
+ <div class="mobile-sticky">
+  <a href="https://pay.kiwify.com.br/Va926Fk" onclick="if (typeof fbq === 'function') { fbq('track', 'InitiateCheckout'); } setTimeout(function(){ window.location.href='https://pay.kiwify.com.br/Va926Fk'; }, 500); return false;">Quero o manifesto agora <span>→</span></a>
+</div>
 
   <div class="top-timer">
     <div class="timer-wrap">
@@ -1040,7 +1069,7 @@ src="https://www.facebook.com/tr?id=1650436132934207&ev=PageView&noscript=1"
         </div>
 
         <div class="hero-text">
-          <div class="kicker"><span>✦</span> Ebook em PDF</div>
+          <div class="kicker"><span>✦</span> Manifesto Digital</div>
           <h1>Você não está cansado da vida. Está cansado de viver distante de si mesmo.</h1>
 
           <div class="hero-mobile-book">
@@ -1060,7 +1089,7 @@ src="https://www.facebook.com/tr?id=1650436132934207&ev=PageView&noscript=1"
           <p class="hero-subtitle">Um manifesto direto sobre consciência, escolhas e a coragem de abandonar o piloto automático antes que ele continue decidindo por você.</p>
 
           <div class="hero-actions">
-            <a href="#comprar" class="btn-primary">Ver oferta de lançamento <span>→</span></a>
+            <a href="https://pay.kiwify.com.br/Va926Fk" class="btn-primary" onclick="if (typeof fbq === 'function') { fbq('track', 'InitiateCheckout'); } setTimeout(function(){ window.location.href='https://pay.kiwify.com.br/Va926Fk'; }, 500); return false;">Quero o manifesto agora <span>→</span></a>
             <div class="safe-text">
               <p>Pagamento seguro pela Kiwify</p>
               <p>7 dias de garantia incondicional</p>
